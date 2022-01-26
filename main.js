@@ -33,7 +33,6 @@ for(let i=0; i<images.length; i++){
     bullets += `<div class="circle"></div>`;
 }
 
-
 // creo le slide
 let itemscontainer = document.querySelector('.items-container');
 itemscontainer.innerHTML = slides;
