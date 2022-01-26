@@ -26,6 +26,11 @@
 
 .item{
     height: 100%;
+    display: none;
+}
+
+.item.active{
+    display: block;
 }
 
 .item img{
