@@ -3,6 +3,7 @@ const images = [
         'img/02.jpg',
         'img/03.jpg',
         'img/04.jpg',
+        'img/05.jpg',
 ];
 
 const title = [
@@ -23,31 +24,32 @@ const text = [
 
 
 let slides = '';
-let bullets = '';
 
 for(let i=0; i<images.length; i++){
     slides += `<div class="item">
                     <img src="${images[i]}">
                 </div>`;
-
-    bullets += `<div class="circle"></div>`;
 }
 
 // creo le slide
-let itemscontainer = document.querySelector('.items-container');
-itemscontainer.innerHTML = slides;
+let mostraItem = document.querySelector('.item-container');
+mostraItem.innerHTML = slides;
+let itemView = document.querySelector('.item-view');
+itemView.innerHTML = slides;
 
 
 // creo i pallini
-let circleContainer = document.querySelector('.circle-container');
-circleContainer.innerHTML = bullets;
+// let circleContainer = document.querySelector('.circle-container');
+// circleContainer.innerHTML = bullets;
 
 
 // inizializzo variabile che mi tenga traccia della slide attiva
 let currentSlide = 0;
 
-let items = document.getElementsByClassName('item');
-items[currentSlide].classList.add('active');
+let itemsHidden = document.querySelector('.item-container').getElementsByClassName('item');
+let prevItems = document.querySelector('.item-view').getElementsByClassName('item')
+itemsHidden[0].classList.add('active');
+prevItems[0].classList.add('active');
 
-let circles = document.getElementsByClassName('circle');
-circles[currentSlide].classList.add('active');
+// let circles = document.getElementsByClassName('circle');
+// circles[currentSlide].classList.add('active');
