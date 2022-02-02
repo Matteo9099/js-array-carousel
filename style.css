@@ -4,34 +4,30 @@
     box-sizing: border-box;
 }
 
+body{
+    background-image: url('img/World\ Map\ \(4\).svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .container{
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin: 0 auto;
     height: 100vh;
-    background-color: lightgray;
+    width: 900px;
 }
 
-.item-container{
-    width: 100%;
-    height: 100%;
-}
-
-.slide{
-    display: flex;
-    width: 65%;
-    height: 60vh;
-    position: relative;
+.items{
+    width: 700px;
+    height: 300px;
 }
 
 .item{
-    height: 100%;
-    width: 100%;
-    display: none;
-}
-
-.item.active{
-    display: block;
+  height: 100%;
+  display: none;
+  position: relative;
 }
 
 .item img{
@@ -40,85 +36,81 @@
     object-fit: cover;
 }
 
-.paragraph{
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    text-align: right;
-    color: #fff;
-    z-index: 111;
-}
-
-.item-view{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-}
-
-.item-view .item{
-    height: 20%;
-    width: 100%;
-    filter: brightness(0.5);
+.item.active{
     display: block;
 }
 
-.item-view .item.active{
-    border: 2px solid #fff;
-}
-
-.prev, .next{
+.item .text{
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
     color: #fff;
+}
+
+.thumbs{
+    height: 300px;
+    background-color: #000;
+    position: relative;
+}
+
+.thumb{
+    height: calc((300px) / 5);
+    opacity: 0.5;
+}
+
+.thumb img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.thumb.active{
+    border: 2px solid #fff;
+    opacity: 1;
+}
+
+.prev, .next {
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
     border-radius: 50%;
-    text-align: center;
-    line-height: 30px;
-    font-size: 20px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-.prev{
-    top: 10px;
-    left: 25%;
+    background: #ccc;
+    position: absolute;
+    left: 50%;
     transform: translate(-50%);
-}
-
-.prev:hover, .next:hover{
-    background-color: rgba(255, 255, 255, 0.5);
-
+    cursor: pointer;
+    z-index: 999;
 }
 
 .next{
-    bottom: 10px;
-    left: 25%;
-    transform: translate(-50%);
+    bottom: 0;
 }
 
-.circle-container{
-    position: absolute;
-    bottom: 10px;
-    text-align: center;
-    width: 100%;
-}
-
-.circle{
+.prev::after {
+    content: '';
     width: 10px;
     height: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
+    transform: rotate(45deg);
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    display: block;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%) rotate(-45deg);
 }
 
-.circle.active{
-    background-color: rgba(255, 255, 255, 0.5);
+.next::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    display: block;
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translate(-50%) rotate(135deg);
 }
-
-.opacity{
-    filter: brightness(0.5);
-}
-
